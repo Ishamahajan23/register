@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            background-color: beige;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            width: 500px;
+            height: 850px;
+            background: linear-gradient(#006B38FF, rgb(166, 255, 161));
+
+            font-family: cursive;
+
+        }
+
+        .box:hover {
+            background: linear-gradient(rgb(166, 255, 161), rgba(0, 107, 55, 0.637));
+
+        }
+
+        .box h1 {
+            color: white;
+            background-color: black;
+            font-size: 2rem;
+            padding: 20px 30px;
+            border: 2px solid black;
+            text-align: center;
+        }
+
+        .box p {
+            margin: 40px 10px;
+            font-size: medium;
+        }
+
+        form {
+
+            font-size: 1.5rem;
+
+            margin: 40px 60px;
+
+
+        }
+
+        form label {
+
+            font-size: 1.5rem;
+
+            margin: 30px;
+
+
+        }
+
+        input {
+            font-size: 1rem;
+            margin: 20px;
+            padding: 13px 60px;
+            background-color: beige;
+            transition-property: all;
+            transition-duration: 2s;
+            transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+        }
+
+        form label:hover {
+            transform: scaleX(1.1);
+        }
+
+        button {
+
+            font-size: 1.5rem;
+            padding: 10px;
+            color: white;
+            background-color: black;
+            position: relative;
+            top: 20px;
+            left: 130px;
+            transition-property: all;
+            transition-duration: 1s;
+            transition-timing-function: linear;
+
+        }
+
+        button:hover {
+            color: rgb(0, 0, 0);
+            background-color: rgb(255, 255, 255);
+            transform: scaleX(1.1);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <h1>Create An Account</h1>
+            <form action="" method="post">
+
+                {% csrf_token %}
+                {% if error_massage %}
+                <p style="color: red; font-size: 1.5rem;">{{error_massage}}</p>
+                {% endif %}
+                <label for="Username"> Username</label>
+                <input type="text" name="username" id="username" placeholder="Enter your username">
+                <label for="email"> Email</label>
+                <input type="email" name="email" id="email" placeholder="Enter Your Email">
+                <label for="password">Password</label>
+                <input type="password" name="password1" id="password1" placeholder="Enter your Password">
+                <label for="password">Confirm Password</label>
+                <input type="password" name="password2" id="password2" placeholder="Confirm your password">
+
+
+                <button type="submit" name="login" value="submit">Submit</button>
+                <p>If you have an account click here- <a href="{% url 'login' %}">login</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+</body>
+
+</html>

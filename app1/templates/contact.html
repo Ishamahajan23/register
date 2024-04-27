@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/register/templates/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Ubuntu', sans-serif;
+
+
+        }
+
+        html,
+        body {
+
+            height: 100%;
+            width: 100%;
+
+        }
+
+        header {
+            width: 100%;
+            height: 70px;
+            position: fixed;
+            background-color: #006B38FF;
+            color: rgb(255, 255, 255);
+            z-index: 1;
+            display: flex;
+            justify-content: space-evenly;
+            border: 2px solid rgba(0, 0, 0, 0.366);
+
+
+        }
+
+        header input {
+            opacity: 0;
+        }
+
+        .toggler i {
+            position: absolute;
+            left: 30px;
+            top: 30px;
+            color: rgb(252, 252, 252);
+            font-size: 2rem;
+            font-weight: 700;
+            cursor: pointer;
+            line-height: 20px;
+            transition: all 1s linear;
+
+        }
+
+        .toggler i:hover {
+            transform: scale(1.2);
+
+        }
+
+
+
+        .remove i {
+            position: absolute;
+            left: 350px;
+            top: 100px;
+            font-size: 2rem;
+            opacity: 0;
+            font-weight: 700;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+
+
+        }
+
+        .remove i:hover {
+            transform: scale(1.2);
+
+        }
+
+        .side-bar {
+            background-color: #006B38FF;
+            height: 100vh;
+            width: 400px;
+            position: fixed;
+            left: -400px;
+            top: 79px;
+            border: 2px solid rgba(0, 0, 0, 0.366);
+            transition: all 1s ease-in-out;
+        }
+
+        #check:checked~.side-bar {
+            left: 0;
+
+        }
+
+        #check:checked~.remove i {
+            opacity: 1;
+        }
+
+        #check:checked~.toggler i {
+            opacity: 0;
+        }
+
+        .side-bar li {
+            font-size: 2rem;
+            font-weight: bolder;
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.366);
+            position: relative;
+            top: 80px;
+
+
+
+
+
+        }
+
+        .side-bar li:hover {
+            background-color: rgb(40, 103, 248);
+            color: #ffffff;
+
+        }
+
+        .side-bar li a {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+
+        }
+
+
+
+
+        header .logo b span {
+            color: rgb(255, 255, 39);
+            font-size: 3rem;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+        }
+
+        header .logo b {
+            color: rgb(255, 255, 255);
+            font-family: cursive;
+            font-weight: bolder;
+            font-size: 2rem;
+            position: relative;
+            left: 40px;
+
+
+        }
+
+        .navbar {
+            font-size: 2rem;
+            position: relative;
+            left: 300px;
+        }
+
+        .navbar a {
+
+            text-decoration: none;
+            color: rgb(255, 253, 253);
+            float: left;
+
+            padding: 20px;
+            font-size: 28px;
+            border-radius: 4px;
+
+
+        }
+
+        header a:hover {
+            background-color: #121215;
+            color: rgb(246, 246, 246);
+            padding: 17px;
+            font-size: 28px;
+            border-radius: 4px;
+        }
+
+        /* .landing-page{
+    width: 100%;
+    height: 100vh;
+    background-image: url("/");
+    background-position:top;
+    background-size: 100%;
+    background-repeat: no-repeat;
+} */
+
+        #contactus {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact1 input,
+        textarea {
+
+            border-color: black;
+            width: 350px;
+            padding: 10px;
+            margin: 20px;
+            font-size: 1.3rem;
+            background-color: rgb(227, 255, 248);
+            color: rgb(0, 0, 0);
+            box-shadow: -8px -5px 12px rgb(249, 249, 249), 5px 10px 12px rgb(0, 0, 0);
+            cursor: pointer;
+        }
+
+        .contact1 button {
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            margin: 10px 130px;
+            background: rgb(0, 0, 0);
+            border-radius: 2rem;
+            border-style: groove;
+            color: rgb(243, 243, 243);
+            border-color: rgb(3, 3, 3);
+            font-weight: bold;
+        }
+
+        .contact1 button:hover {
+            background-color: rgb(113, 255, 127);
+            color: black;
+            transform: scale(1.1);
+        }
+
+        .contact1 {
+            /*  
+  position: relative;
+  left: 150px;
+  top: 150px; */
+            padding: 50px 70px;
+            width: 30%;
+            height: 78%;
+            border-width: 2px;
+            border-color: #121215;
+            border-style: solid;
+
+            /* background: linear-gradient(to bottom right, #006B38FF, #E6F0FF);
+  
+  box-shadow: 8px 5px 20px rgb(175, 171, 171), 5px 10px 12px rgb(0, 0, 0); */
+
+
+        }
+
+        .contact1 h1 {
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 2rem;
+        }
+
+        .contact1 p {
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        #contacts_img img {
+            width: 750px;
+            height: 690px;
+            border-width: 2px;
+            border-color: #121215;
+            border-style: solid;
+
+        }
+
+        /* Footer */
+        #footer {
+            background-color: black;
+            width: 100%;
+            height: 50vh;
+
+        }
+
+        #footer p {
+            color: #ffffff;
+            font-size: 20px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #foot {
+
+            width: 100%;
+            height: 40vh;
+            border: 2px solid #666;
+            background-color: rgb(0, 0, 0);
+            display: grid;
+            justify-content: space-evenly;
+            grid-template-columns: 500px 500px 400px;
+            grid-template-rows: 40vh;
+
+
+
+        }
+
+        .con {
+
+            height: 40vh;
+            width: 500px;
+            position: relative;
+            top: 30px;
+            font-size: 20px;
+            color: #E6F0FF;
+
+        }
+
+        .con li a,
+        .con li {
+
+            padding: 20px;
+            color: #E6F0FF;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        .links {
+
+            height: 40vh;
+            width: 500px;
+            position: relative;
+            top: 30px;
+            font-size: 20px;
+            text-align: center;
+
+
+
+        }
+
+        .links li a,
+        .links li {
+            padding: 20px;
+            color: #E6F0FF;
+            list-style: none;
+            text-decoration: none;
+
+        }
+
+        .imp {
+
+            height: 40vh;
+            width: 400px;
+            padding: 20px;
+            font-size: 20px;
+            color: #E6F0FF;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <b>Green<span>&amp;</span>Clean Earth&#127757;</b>
+        </div>
+        <div class="navbar">
+            <a href="{% url 'login' %}">Home</a>
+            <a href="{% url 'login' %}">Join Form</a>
+
+           
+
+
+            <!-- <a href="{% url 'login' %}">Login<i class="fa-solid fa-right-to-bracket"></i></a> -->
+            <!-- <a href="{% url 'signup' %}">signup</a><i class="fa-solid fa-arrow-right-to-bracket"></i>
+        </a> -->
+            <a href="{% url 'signup' %}">SignUp</a>
+        </div>
+
+        <input type="checkbox" name="" id="check">
+        <label for="check" class="toggler">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+        <div class="side-bar">
+            <ul>
+                <li><a href="{% url 'login' %}">Home &#127968;</a></li>
+                <li> <a href="{% url 'about' %}">About&#128587; </a></li>
+                <li><a href="{% url 'contact' %}">Contact&#128222;</a></li>
+                <!-- <li><a href="{% url 'login' %}">Login<i class="fa-solid fa-right-to-bracket"></i></a></li> -->
+                <li><a href="{% url 'signup' %}">SignUp</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+              
+
+            </ul>
+        </div>
+        <label for="check" class="remove">
+            <i class="fa-solid fa-xmark"></i>
+        </label>
+
+
+    </header>
+
+    <section id="contactus">
+        <form method="post" action="" class="contact1">
+            {% csrf_token %}
+            <p style="font-size: 1.5rem; color: red; position: relative; bottom: 20px;">{{n}}</p>
+                <h1>GET IN TOUCH</h1><br>
+                <p id="email">Your Email-Id</p>
+                <input type="email" placeholder="email" id="email" name="email">
+                <p id="number">Mobile Number</p>
+                <input type="number" placeholder="mobile number" id="number" name="mobilenumber">
+                <p id="des">Message</p>
+                <textarea name="message" id="des" cols="20" rows="5" placeholder="Description" class="form-control"></textarea>
+                
+                <button type="submit">Send</button>
+      
+        </form>
+        
+        <div id="contacts_img">
+            <img src="/media/img/5127047.jpg" alt="">
+        </div>
+
+
+    </section>
+
+    <footer id="footer">
+        <div id="foot">
+            <div class="con">
+                <ul>
+                    <li> <a href="#"> <i class="fas fa-user"></i> Greeen&Clean Earth org.</a></li>
+
+
+                    <li> <a href="mailto:ishamahajan933@gmail.com"><i class="fa-solid fa-envelope"></i>
+                            greenandcleanearth07@gmail.com</a></li>
+
+
+                    <li><a href="tel:+91"><i class="fas fa-phone"></i> +1234567890</a></li>
+
+
+                    <li> <a href=""><i class="fa-solid fa-location-dot"></i> Burhanpur,Madhya Pradesh </a></li>
+                </ul>
+
+
+            </div>
+            <div class="links">
+
+                <ul>
+                    <li><a href="{% url 'home' %}">home</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                    <li><a href="{% url 'joinnow' %}">Join Now</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="links">
+                <ul>
+
+                    <li><a href="#">News Feeds</a></li>
+                    <li><a href="#">Latest Events</a></li>
+                    <li><a href="#"></a></li>
+
+                </ul>
+
+
+            </div>
+
+
+
+        </div>
+
+        <p>Made With &#128154; | Green&Clean Earth org. &#127757;| Bharat <img src="/media/img/flag.png" alt="" width="20px"></p>
+
+    </footer>
+
+
+
+    <script src="/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+</body>
+
+</html>

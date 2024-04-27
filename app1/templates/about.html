@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About-green&clean earth</title>
+    <link rel="stylesheet" href="/register/templates/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Ubuntu', sans-serif;
+
+
+        }
+
+        html,
+        body {
+
+            height: 100%;
+            width: 100%;
+            background-color: rgba(114, 207, 60, 0.16);
+        }
+
+        header {
+            width: 100%;
+            height: 70px;
+            position: fixed;
+            background-color: #006B38FF;
+            color: rgb(255, 255, 255);
+            z-index: 1;
+            display: flex;
+            justify-content: space-evenly;
+            border: 2px solid rgba(0, 0, 0, 0.366);
+
+
+        }
+
+        header input {
+            opacity: 0;
+        }
+
+        .toggler i {
+            position: absolute;
+            left: 30px;
+            top: 30px;
+            color: rgb(252, 252, 252);
+            font-size: 2rem;
+            font-weight: 700;
+            cursor: pointer;
+            line-height: 20px;
+            transition: all 1s linear;
+
+        }
+
+        .toggler i:hover {
+            transform: scale(1.2);
+
+        }
+
+
+
+        .remove i {
+            position: absolute;
+            left: 350px;
+            top: 100px;
+            font-size: 2rem;
+            opacity: 0;
+            font-weight: 700;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+
+
+        }
+
+        .remove i:hover {
+            transform: scale(1.2);
+
+        }
+
+        .side-bar {
+            background-color: #006B38FF;
+            height: 100vh;
+            width: 400px;
+            position: fixed;
+            left: -400px;
+            top: 79px;
+            border: 2px solid rgba(0, 0, 0, 0.366);
+            transition: all 1s ease-in-out;
+        }
+
+        #check:checked~.side-bar {
+            left: 0;
+
+        }
+
+        #check:checked~.remove i {
+            opacity: 1;
+        }
+
+        #check:checked~.toggler i {
+            opacity: 0;
+        }
+
+        .side-bar li {
+            font-size: 2rem;
+            font-weight: bolder;
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.366);
+            position: relative;
+            top: 80px;
+
+
+
+
+
+        }
+
+        .side-bar li:hover {
+            background-color: rgb(40, 103, 248);
+            color: #ffffff;
+
+        }
+
+        .side-bar li a {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+
+        }
+
+
+
+
+        header .logo b span {
+            color: rgb(255, 255, 39);
+            font-size: 3rem;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+        }
+
+        header .logo b {
+            color: rgb(255, 255, 255);
+            font-family: cursive;
+            font-weight: bolder;
+            font-size: 2rem;
+            position: relative;
+            left: 40px;
+
+
+        }
+
+        .navbar {
+            font-size: 2rem;
+            position: relative;
+            left: 300px;
+        }
+
+        .navbar a {
+
+            text-decoration: none;
+            color: rgb(255, 253, 253);
+            float: left;
+
+            padding: 20px;
+            font-size: 28px;
+            border-radius: 4px;
+
+
+        }
+
+        header a:hover {
+            background-color: #121215;
+            color: rgb(246, 246, 246);
+            padding: 17px;
+            font-size: 28px;
+            border-radius: 4px;
+        }
+
+        .about {
+            height: 260vh;
+            width: 100%;
+            color: #ffffff;
+            font-size: 1.8rem;
+            padding: 100px 50px;
+           
+
+        }
+
+        .about span {
+            font-family: cursive;
+            font-size: 3rem;
+        }
+
+        #detail {
+           
+            padding: 60px 60px;
+            width: 100%;
+            height: 250vh;
+            background-color: beige;
+
+
+            color: #121215;
+
+
+        }
+
+        .about h1 {
+
+            font-size: 2rem;
+            color: rgb(40, 103, 248);
+
+        }
+
+        .about h1 span {
+            color: #116a17;
+            font-family: cursive;
+            font-size: 2rem;
+        }
+
+        .about p {
+            font-size: 1.5rem;
+            line-height: 2rem;
+        }
+
+        .about h3 {
+            font-size: 1.5rem;
+            color: rgb(27, 146, 31);
+        }
+
+        #footer {
+            background-color: black;
+            width: 100%;
+            height: 50vh;
+
+        }
+
+        #footer p {
+            color: #ffffff;
+            font-size: 20px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #foot {
+
+            width: 100%;
+            height: 40vh;
+            border: 2px solid #666;
+            background-color: rgb(0, 0, 0);
+            display: grid;
+            justify-content: space-evenly;
+            grid-template-columns: 500px 500px 400px;
+            grid-template-rows: 40vh;
+
+
+
+        }
+
+        .con {
+
+            height: 40vh;
+            width: 500px;
+            position: relative;
+            top: 30px;
+            font-size: 20px;
+            color: #E6F0FF;
+
+        }
+
+        .con li a,
+        .con li {
+
+            padding: 20px;
+            color: #E6F0FF;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        .links {
+
+            height: 40vh;
+            width: 500px;
+            position: relative;
+            top: 30px;
+            font-size: 20px;
+            text-align: center;
+
+
+
+        }
+
+        .links li a,
+        .links li {
+            padding: 20px;
+            color: #E6F0FF;
+            list-style: none;
+            text-decoration: none;
+
+        }
+
+        .imp {
+
+            height: 40vh;
+            width: 400px;
+            padding: 20px;
+            font-size: 20px;
+            color: #E6F0FF;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <b>Green<span>&amp;</span>Clean Earth&#127757;</b>
+        </div>
+        <div class="navbar">
+            <a href="{% url 'login' %}">Home</a>
+            <a href="{% url 'login' %}">Join Form</a>
+
+           
+
+
+            <!-- <a href="{% url 'login' %}">Login<i class="fa-solid fa-right-to-bracket"></i></a> -->
+            <!-- <a href="{% url 'signup' %}">signup</a><i class="fa-solid fa-arrow-right-to-bracket"></i>
+        </a> -->
+            <a href="{% url 'signup' %}">SignUp</a>
+        </div>
+
+        <input type="checkbox" name="" id="check">
+        <label for="check" class="toggler">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+        <div class="side-bar">
+            <ul>
+                <li><a href="{% url 'login' %}">Home &#127968;</a></li>
+                <li> <a href="{% url 'about' %}">About&#128587; </a></li>
+                <li><a href="{% url 'contact' %}">Contact&#128222;</a></li>
+                <!-- <li><a href="{% url 'login' %}">Login<i class="fa-solid fa-right-to-bracket"></i></a></li> -->
+                <li><a href="{% url 'signup' %}">SignUp</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+              
+
+            </ul>
+        </div>
+        <label for="check" class="remove">
+            <i class="fa-solid fa-xmark"></i>
+        </label>
+
+
+    </header>
+    <section class="about">
+
+        <div id="detail">
+            <h1>ABOUT US ~ <span>Green&amp;Clean Earth</span>&#127757;</h1><br>
+
+            <p> Welcome to Green&amp;Clean Earth, our go-to online platform dedicated to protecting our planet from the
+                threats of global warming and climate change. We are a passionate community of environmental enthusiasts
+                committed to making a positive impact on the Earth's future.  <br><br>
+                the “Green and Clean Earth” project with its daily notification system represents a powerful tool 
+                in the collective effort towards a more sustainable future. By leveraging technology to deliver personalized tips 
+                and insights, the project empowers individuals to make informed choices in their daily lives. This approach 
+                recognizes that even small, consistent actions can yield significant positive outcomes for the environment. 
+                Through a user-centric design and a structured development process, the project aspires to foster a global 
+                community committed to environmental stewardship. The continuous integration of user feedback and datadriven 
+                insights ensures that the system remains responsive to evolving environmental concerns. “Green and Clean 
+                Earth” stands as a testament to the potential for technology to drive positive change, inspiring a shared 
+                commitment to a cleaner, greener planet for generations to come. <br><br>
+                Green & Clean Earth offers a valuable platform for promoting eco-conscious habits and individual actions to 
+                combat climate change. While it has its limitations, it plays a crucial role in raising awareness and empowering 
+                users to make a positive impact on the environment. Green & Clean Earth contributes to a more sustainable future, 
+                one small step at a time.</p><br>
+
+
+            <h1> 🌿 Our Mission 🌏</h1><br>
+
+            <p> At Green&amp;Clean Earth, our mission is clear: we strive to raise awareness about environmental issues,
+                provide actionable solutions, and inspire collective action to combat climate change. We firmly believe
+                that
+                every individual can contribute to a greener and cleaner Earth.</p><br>
+
+            <h1><span>Green & Clean Earth:</span> Protecting Our Planet One Habit at a Time</h1><br>
+
+            <p>The Green & Clean Earth website is our go-to platform for making a positive impact on our environment,
+                fighting global warming, and combating climate change. Our mission is to empower users like you to adopt
+                eco-friendly habits in your daily routines. Here's how it works:</p><br>
+            <ol>
+
+                <li>
+                    <h3>Personalized Habit Tracker:</h3>
+                    <p>- Upon signing up, you'll create a profile and can fill a form of joining  </p>
+                    <p> - Our algorithm then customizes a list of sustainable habits tailored to your lifestyle.</p>
+                </li>
+
+                <li>
+                    <h3>Habit Notifications:</h3>
+                    <p> - Receive daily notifications reminding you to practice your eco-friendly habits.</p>
+                    <p> - Notifications are timed to fit seamlessly into your schedule, making it easy to build a
+                        greener
+                        routine.</p>
+                </li>
+
+                <!-- <li>
+                <h3> Habit Progress:</h3>
+                <p>- Track your progress with an easy-to-use dashboard.</p>
+                <p>- Earn badges and rewards as you consistently adopt sustainable habits.</p>
+            </li> -->
+
+                <li>
+                    <h3>Educational Resources:</h3>
+                    <p> - Access a wealth of articles, videos, and infographics on climate change, global warming, and
+                        eco-friendly living.</p>
+                    <p> - Stay informed and inspired to make a difference.</p>
+                </li>
+                <!-- <li>
+                <h3>Community Engagement:</h3>
+                <p>- Connect with a community of like-minded individuals.</p>
+                <p> - Share your achievements, challenges, and tips for a greener lifestyle.</p>
+            </li> -->
+                <li>
+
+                    <h3> Environmental Impact:</h3>
+                    <p>- Watch as your daily actions contribute to a reduced carbon footprint.</p>
+                    <p> - See the collective impact of the Green & Clean Earth community.</p>
+                </li>
+
+            </ol><br>
+
+
+            <p> By integrating eco-conscious choices into your daily routine, you can be a part of the solution to
+                climate
+                change and global warming. Join Green & Clean Earth today and take meaningful steps towards a
+                sustainable
+                future. Together, we can protect our planet for generations to come.</p><br>
+            <h1>🌱 What We Offer 🌊</h1><br>
+
+            <h3>Educational Resources: </h3>
+            <p>Access the latest research, articles, and infographics on climate change,
+                renewable energy, sustainable living, and more.</p>
+            <h3>Actionable Tips: </h3>
+            <p>Discover practical tips and eco-friendly lifestyle changes that you can implement in
+                your daily routine.</p>
+            <!-- <h3>Community Engagement: </h3>
+        <p>Join our passionate community of like-minded individuals, exchange ideas, and
+            collaborate on environmental projects.</p>  -->
+            <h3>Advocacy: </h3>
+            <p>Stay informed about environmental policies and initiatives, and learn how to advocate for a
+                greener future.</p>
+            <h3>Events: </h3>
+            <p>Stay updated on local and global environmental events, workshops, and campaigns.</p>
+
+            <br>
+            <br>
+            <h1>🤝 Join Us in Protecting Our Planet 🌏</h1>
+
+            <p>It's time to take action! Join us in our journey to create a sustainable, green, and clean Earth for
+                future
+                generations. Together, we can make a difference. <a href="{% url 'joinnow' %}">Join Now</a></p><br>
+
+
+            <h1>🌎 Together, We Can Make a Change! 🌿</h1><br>
+
+            [Contact Information]
+
+            <p><a href="{% url 'contact' %}">Contact Us</a></p><br>
+            <p>
+                Good luck with your environmental efforts!
+            </p>
+
+            <br>
+
+
+        </div>
+
+
+    </section>
+
+    <!--Footer ------------------------------------------>
+
+    <footer id="footer">
+        <div id="foot">
+            <div class="con">
+                <ul>
+                    <li> <a href="#"> <i class="fas fa-user"></i> Greeen&Clean Earth org.</a></li>
+
+
+                    <li> <a href="mailto:ishamahajan933@gmail.com"><i class="fa-solid fa-envelope"></i>
+                            greenandcleanearth07@gmail.com</a></li>
+
+
+                    <li><a href="tel:+91"><i class="fas fa-phone"></i> +1234567890</a></li>
+
+
+                    <li> <a href=""><i class="fa-solid fa-location-dot"></i> Burhanpur,Madhya Pradesh </a></li>
+                </ul>
+
+
+            </div>
+            <div class="links">
+
+                <ul>
+                    <li><a href="{% url 'home' %}">home</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                    <li><a href="{% url 'joinnow' %}">Join Now</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="links">
+                <ul>
+                   
+                    <li><a href="#">News Feeds</a></li>
+                    <li><a href="#">Latest Events</a></li>
+                    <li><a href="#"></a></li>
+
+                </ul>
+
+
+            </div>
+
+
+
+        </div>
+
+        <p>Made With &#128154; | Green&Clean Earth org. &#127757;| Bharat &#x1f1ee; &#x1f1f3;</p>
+
+    </footer>
+    <script src="/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+</body>
+
+</html>

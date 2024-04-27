@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joining Form</title>
+    <link rel="stylesheet" href="/style.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <!-- Font Awesome CSS -->
+    <script src="https://kit.fontawesome.com/5135d630a7.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Ubuntu', sans-serif;
+
+
+        }
+
+        html,
+        body {
+
+            height: 100%;
+            width: 100%;
+            background-color: rgba(114, 207, 60, 0.16);
+        }
+
+        header {
+            width: 100%;
+            height: 70px;
+            position: fixed;
+            background-color: #006B38FF;
+            color: rgb(255, 255, 255);
+            z-index: 1;
+            display: flex;
+            justify-content: space-evenly;
+            border: 2px solid rgba(0, 0, 0, 0.366);
+
+
+        }
+
+        header input {
+            opacity: 0;
+        }
+
+        .toggler i {
+            position: absolute;
+            left: 30px;
+            top: 30px;
+            color: rgb(252, 252, 252);
+            font-size: 2rem;
+            font-weight: 700;
+            cursor: pointer;
+            line-height: 20px;
+            transition: all 1s linear;
+
+        }
+
+        .toggler i:hover {
+            transform: scale(1.2);
+
+        }
+
+
+
+        .remove i {
+            position: absolute;
+            left: 350px;
+            top: 100px;
+            font-size: 2rem;
+            opacity: 0;
+            font-weight: 700;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+
+
+        }
+
+        .remove i:hover {
+            transform: scale(1.2);
+
+        }
+
+        .side-bar {
+            background-color: #006B38FF;
+            height: 100vh;
+            width: 400px;
+            position: fixed;
+            left: -400px;
+            top: 79px;
+            border: 2px solid rgba(0, 0, 0, 0.366);
+            transition: all 1s ease-in-out;
+        }
+
+        #check:checked~.side-bar {
+            left: 0;
+
+        }
+
+        #check:checked~.remove i {
+            opacity: 1;
+        }
+
+        #check:checked~.toggler i {
+            opacity: 0;
+        }
+
+        .side-bar li {
+            font-size: 2rem;
+            font-weight: bolder;
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.366);
+            position: relative;
+            top: 80px;
+            right: 18px;
+          
+
+        }
+
+        .side-bar li:hover {
+            background-color: rgb(40, 103, 248);
+            color: #ffffff;
+
+        }
+
+        .side-bar li a {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+
+        }
+
+
+
+
+        header .logo b span {
+            color: rgb(255, 255, 39);
+            font-size: 3rem;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+        }
+
+        header .logo b {
+            color: rgb(255, 255, 255);
+            font-family: cursive;
+            font-weight: bolder;
+            font-size: 2rem;
+            position: relative;
+            left: 40px;
+
+
+        }
+
+        .navbar {
+            font-size: 2rem;
+            position: relative;
+            left: 300px;
+        }
+
+        .navbar a {
+
+            text-decoration: none;
+            color: rgb(255, 253, 253);
+            float: left;
+
+            padding: 7px 25px;
+            font-size: 28px;
+            border-radius: 4px;
+            transition: all 1s linear;
+
+        }
+
+        .navbar a:hover {
+            background-color: transparent;
+            color: rgb(246, 246, 246);
+            padding: 5px 25px;
+            font-size: 28px;
+            border-radius: 4px;
+            transform: scale(1.1);
+            box-shadow: 0 0.5rem 4rem 2.75rem hsla(0, 0%, 100%, 0.549);
+
+        }
+
+        /* .landing-page{
+    width: 100%;
+    height: 100vh;
+    background-image: url("/");
+    background-position:top;
+    background-size: 100%;
+    background-repeat: no-repeat;
+} */
+
+
+        .joinform {
+
+
+
+            width: 100%;
+            height: 110vh;
+            font-size: 2rem;
+            color: rgb(0, 0, 0);
+            font-family: cursive;
+            background-color: whitesmoke;
+
+
+
+        }
+
+        .joinform form {
+            margin: 20px 250px;
+            background: linear-gradient(rgb(0, 184, 95), rgb(192, 255, 189));
+            width: 70%;
+            height: 78vh;
+            text-align: center;
+            padding: 40px 40px;
+
+            display: grid;
+            grid-template-columns: 1100px;
+            grid-template-rows: 110px;
+            border-color: #121215;
+            border-width: 2px;
+            border-style: solid;
+
+
+
+        }
+
+        .joinform #details {
+            display: flex;
+        }
+
+        .joinform form:hover {
+            background: linear-gradient(rgb(166, 255, 161), rgba(0, 107, 55, 0.637));
+            color: #121215;
+        }
+
+        .joinform h1 {
+            text-align: center;
+            padding-top: 80px;
+            font-family: cursive;
+        }
+
+        .joinform input,
+        select {
+
+            font-size: 1.2rem;
+            border-width: 3px;
+            border-style: groove;
+            cursor: pointer;
+            text-align: center;
+            padding: 10px;
+
+
+
+
+
+        }
+
+
+
+        .joinform #notifiyfrequency input[type=radio],
+        .joinform #notifytype input[type=checkbox],
+        .joinform #goal input[type=checkbox] {
+            border: 0px;
+            width: 30px;
+            height: 25px;
+
+
+
+        }
+
+        .joinform input[type=submit] {
+            padding: 10px 10px;
+            background-color: black;
+            font-size: 1.7rem;
+            color: white;
+            width: 200px;
+            height: 50px;
+            position: relative;
+            left: 450px;
+           
+        }
+
+        .joinform label {
+
+            font-size: 1.5rem;
+            color: rgb(0, 0, 0);
+            font-weight: 400;
+            padding: 10px;
+
+
+
+
+
+        }
+
+
+        #footer {
+            background-color: black;
+            width: 100%;
+            height: 50vh;
+
+        }
+
+        #footer p {
+            color: #ffffff;
+            font-size: 20px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #foot {
+
+            width: 100%;
+            height: 40vh;
+            border: 2px solid #666;
+            background-color: rgb(0, 0, 0);
+            display: grid;
+            justify-content: space-evenly;
+            grid-template-columns: 500px 500px 400px;
+            grid-template-rows: 40vh;
+
+
+
+        }
+
+        .con {
+
+            height: 40vh;
+            width: 500px;
+            position: relative;
+            top: 30px;
+            font-size: 20px;
+            color: #E6F0FF;
+
+        }
+
+        .con li a,
+        .con li {
+
+            padding: 20px;
+            color: #E6F0FF;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        .links {
+
+            height: 40vh;
+            width: 500px;
+            position: relative;
+            top: 30px;
+            font-size: 20px;
+            text-align: center;
+
+
+
+        }
+
+        .links li a,
+        .links li {
+            padding: 20px;
+            color: #E6F0FF;
+            list-style: none;
+            text-decoration: none;
+
+        }
+
+        .imp {
+
+            height: 40vh;
+            width: 400px;
+            padding: 20px;
+            font-size: 20px;
+            color: #E6F0FF;
+
+        }
+
+        .notification {
+
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin-right: 15px;
+            margin-left: 15px;
+            position: relative;
+            display: inline-block;
+            border-radius: 3px;
+            font-size: 15px;
+
+
+
+
+        }
+
+        .notification:hover {
+
+            color: #fff;
+        }
+
+        .notification .badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+
+            border-radius: 50%;
+            background: red;
+            color: white;
+        }
+
+        .notification-section .dropdown-toggle::after {
+            content: none;
+        }
+
+        .dropdown-toggle::after {
+            color: #fdfdfd;
+        }
+
+        .dropdown-menu a {
+
+            max-width: 500px;
+            word-wrap: break-word;
+            display: inline-block;
+            white-space: normal;
+            color: #000000;
+            font-size: larger;
+        }
+
+        .dropdown-menu a:hover {
+            font-size: larger;
+            color: #000000;
+            background-color: #fdfdfd;
+        }
+
+        .dropdown-menu {
+            width: 30rem;
+            background-color: #fdfdfd;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+    <header>
+        <div class="logo">
+            <b>Green<span>&amp;</span>Clean Earth&#127757;</b>
+        </div>
+        <div class="navbar">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'joinnow' %}">Join Form</a>
+
+            <div class="nav-item dropdown notification-section">
+                <a href="#" class="notification dropdown-toggle" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="true">
+                    <span><i class='fa fa-bell'></i></span>
+                    <span class="badge" id="notification-badge">0</span>
+                </a>
+                <div class="dropdown-menu">
+
+                    {% for i in notifications %}
+                    <a class="dropdown-item" href="{% url 'notification' %}">{{i.message}}</a>
+                    <div role="separator" class="dropdown-divider"></div>
+                    {% endfor %}
+                    {% comment %} <a class='dropdown-item'>Notification Section</a>
+                    <hr class="dropdown-divider"> {% endcomment %}
+                </div>
+            </div>
+
+            <!-- <a href="{% url 'login' %}">Login<i class="fa-solid fa-right-to-bracket"></i></a> -->
+            <!-- <a href="{% url 'signup' %}">signup</a><i class="fa-solid fa-arrow-right-to-bracket"></i>
+            </a> -->
+            <a href="{% url 'logout' %}">Log Out</a>
+        </div>
+
+        <input type="checkbox" name="" id="check">
+        <label for="check" class="toggler">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+        <div class="side-bar">
+            <ul>
+
+                <li><a href="{% url 'home' %}">Home &#127968;</a></li>
+
+                <li> <a href="{% url 'about' %}">About&#128587; </a></li>
+                <li><a href="{% url 'contact' %}">Contact&#128222;</a></li>
+                <!-- <li><a href="{% url 'login' %}">Login<i class="fa-solid fa-right-to-bracket"></i></a></li> -->
+                <!-- <li><a href="{% url 'signup' %}">New Account+</a></li> -->
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li> <a href="{% url 'logout' %}">Log out</a></li>
+
+            </ul>
+        </div>
+        <label for="check" class="remove">
+            <i class="fa-solid fa-xmark"></i>
+        </label>
+
+
+    </header>
+
+
+
+    <section class="joinform">
+
+
+
+        <h1>Join Us for Sustainability Notifications</h1>
+
+        <form method="post" action="">
+            {% csrf_token %}
+
+            <div id="details">
+                <label for="name">Name:<input type="text" id="name" name="name" required
+                        placeholder="Enter Name"></label>
+
+
+                <label for="email">Email:<input type="email" id="email" name="email" required
+                        placeholder="Enter Email"></label>
+
+
+                <label for="age">Age:<input type="number" id="age" name="age" placeholder="Enter Age"></label>
+
+
+                <label for="location">Location: <input type="text" id="location" name="location"
+                        placeholder="Enter Location"></label>
+
+            </div>
+
+
+
+
+            <label>Interests and Goals: </label>
+            <div id="goal">
+
+                <label for="energy"><input type="checkbox" id="energy" name="interests[]" value="energy"> Energy Saving
+                    Ideas</label>
+
+                <label for="waste"><input type="checkbox" id="waste" name="interests[]" value="waste"> Recycling
+                    Tips</label>
+
+                <label for="diet"> <input type="checkbox" id="diet" name="interests[]" value="diet"> Sustainable
+                    Living</label>
+                <label for="nature"> <input type="checkbox" id="nature" name="interests[]" value="nature"> Nature And
+                    WildLife</label>
+            </div>
+
+
+
+            <!-- Add more checkboxes for other interests -->
+
+            <label for="schedule">Preferred Notification Schedule: </label>
+            <div id="shedule"><select id="schedule" name="schedule">
+                    <option value="morning">Morning</option>
+                    <option value="afternoon">Afternoon</option>
+                    <option value="evening">Evening</option>
+                </select></div>
+
+
+
+            <label for="frequency">Notification Frequency: </label>
+            <div id="notifiyfrequency"><label for="daily"><input type="radio" id="daily" name="frequency" value="daily">
+                    Daily</label>
+
+                <label for="weekly"><input type="radio" id="weekly" name="frequency" value="weekly"> Weekly</label>
+
+                <label for="monthly"> <input type="radio" id="monthly" name="frequency" value="monthly"> Monthly</label>
+            </div>
+
+
+
+
+            <label>Notification Type: </label>
+            <div id="notifytype"><label for="tips"> <input type="checkbox" id="tips" name="types[]" value="tips">
+                    Tips</label>
+
+                <label for="challenges"> <input type="checkbox" id="challenges" name="types[]" value="challenges">
+                    Challenges</label>
+
+                <label for="news"><input type="checkbox" id="news" name="types[]" value="news"> News</label>
+            </div>
+
+
+
+            <!-- Add more checkboxes for other types -->
+            <p
+                style="color: rgb(255, 0, 0); font-size: 2rem; position: relative; top: 20px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+                {{n}}</p>
+            <input type="submit" value="JOIN">
+        </form>
+
+
+    </section>
+
+
+
+
+
+
+
+    <footer id="footer">
+        <div id="foot">
+            <div class="con">
+                <ul>
+                    <li> <a href="#"> <i class="fas fa-user"></i> Greeen&Clean Earth org.</a></li>
+
+
+                    <li> <a href="mailto:ishamahajan933@gmail.com"><i class="fa-solid fa-envelope"></i>
+                            greenandcleanearth07@gmail.com</a></li>
+
+
+                    <li><a href="tel:+91"><i class="fas fa-phone"></i> +1234567890</a></li>
+
+
+                    <li> <a href=""><i class="fa-solid fa-location-dot"></i> Burhanpur,Madhya Pradesh </a></li>
+                </ul>
+
+
+            </div>
+            <div class="links">
+
+                <ul>
+                    <li><a href="{% url 'home' %}">home</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                    <li><a href="{% url 'joinnow' %}">Join Now</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="links">
+                <ul>
+
+                    <li><a href="#">News Feeds</a></li>
+                    <li><a href="#">Latest Events</a></li>
+                    <li><a href="#"></a></li>
+
+                </ul>
+
+
+            </div>
+
+
+
+        </div>
+
+        <p>Made With &#128154; | Green&Clean Earth org. &#127757;| Bharat <img src="/media/img/flag.png" alt=""
+                width="20px"></p>
+
+    </footer>
+
+    {{ room_name|json_script:"room-name" }}
+    <script>
+        const roomName = JSON.parse(document.getElementById('room-name').textContent);
+
+        const notificationSocket = new WebSocket(
+            'ws://'
+            + window.location.host
+            + '/ws/notification/'
+            + roomName
+            + '/'
+        );
+
+        notificationSocket.onmessage = function (e) {
+            const data = JSON.parse(e.data);
+            //document.querySelector('#chat-log').value += (data.message + '\n');
+            console.log(data);
+            badge = document.getElementById("notification-badge").innerHTML;
+            document.getElementById("notifications-dropdown").innerHTML = "<a class='dropdown-item'>" + data + "</a><hr class='dropdown-divider'>" + document.getElementById("notifications-dropdown").innerHTML;
+            badge = parseInt(badge) + 1;
+            console.log(badge);
+        };
+
+        notificationSocket.onclose = function (e) {
+            console.error('Chat socket closed unexpectedly');
+        };
+
+
+
+
+    </script>
+
+    {% block body %} {% endblock %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+</body>
+
+</html>

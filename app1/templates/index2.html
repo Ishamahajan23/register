@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-Green&Clean Earth</title>
+    <link rel="stylesheet" href="/media/img/style.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <!-- Font Awesome CSS -->
+    <script src="https://kit.fontawesome.com/5135d630a7.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Ubuntu', sans-serif;
+
+
+        }
+
+        html,
+        body {
+
+            height: 100%;
+            width: 100%;
+            background-color: rgba(114, 207, 60, 0.16);
+        }
+
+        header {
+            width: 100%;
+            height: 70px;
+            position: fixed;
+            background-color: #006B38FF;
+            color: rgb(255, 255, 255);
+            z-index: 1;
+            display: flex;
+            justify-content: space-evenly;
+            border: 2px solid rgba(0, 0, 0, 0.366);
+
+
+        }
+
+        header input {
+            opacity: 0;
+        }
+
+        .toggler i {
+            position: absolute;
+            left: 30px;
+            top: 30px;
+            color: rgb(252, 252, 252);
+            font-size: 2rem;
+            font-weight: 700;
+            cursor: pointer;
+            line-height: 20px;
+            transition: all 1s linear;
+
+        }
+
+        .toggler i:hover {
+            transform: scale(1.2);
+
+        }
+
+
+
+        .remove i {
+            position: absolute;
+            left: 350px;
+            top: 100px;
+            font-size: 2rem;
+            opacity: 0;
+            font-weight: 700;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+
+
+        }
+
+        .remove i:hover {
+            transform: scale(1.2);
+
+        }
+
+        .side-bar {
+            background-color: #006B38FF;
+            height: 100vh;
+            width: 400px;
+            position: fixed;
+            left: -400px;
+            top: 79px;
+            border: 2px solid rgba(0, 0, 0, 0.366);
+            transition: all 1s ease-in-out;
+        }
+
+        #check:checked~.side-bar {
+            left: 0;
+
+        }
+
+        #check:checked~.remove i {
+            opacity: 1;
+        }
+
+        #check:checked~.toggler i {
+            opacity: 0;
+        }
+
+        .side-bar li {
+           
+            font-weight: bolder;
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.366);
+            position: relative;
+            top: 80px;
+            left: -20px;
+
+
+
+        }
+
+        .side-bar li:hover {
+            /* background-color: rgb(0, 0, 0); */
+            color: #ffffff;
+
+        }
+
+        .side-bar li a {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            translate: all 1s linear;
+            font-size: 2rem;
+
+        }
+        .side-bar li a:hover{
+            background-color: transparent;
+            color: rgb(246, 246, 246);
+            transform: scale(1.2);
+            font-size: 2rem;
+        }
+
+
+
+        header .logo b span {
+            color: rgb(255, 255, 39);
+            font-size: 3rem;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+        }
+
+        header .logo b {
+            color: rgb(255, 255, 255);
+            font-family: cursive;
+            font-weight: bolder;
+            font-size: 2rem;
+            position: relative;
+            left: 40px;
+
+
+        }
+
+        .navbar {
+            font-size: 2rem;
+            position: relative;
+            left: 300px;
+        }
+
+        .navbar a {
+
+            text-decoration: none;
+            color: rgb(255, 253, 253);
+            float: left;
+
+            padding: 5px 25px;
+            font-size: 28px;
+            border-radius: 4px;
+            transition: all 1s linear;
+
+        }
+
+        .navbar a:hover {
+            background-color: transparent;
+            color: rgb(246, 246, 246);
+            padding: 5px 25px;
+            font-size: 28px;
+            border-radius: 4px;
+            transform: scale(1.1);
+            box-shadow: 0 0.5rem 4rem 2.75rem hsla(0, 0%, 100%, 0.549);
+
+        }
+
+        /* .landing-page{
+    width: 100%;
+    height: 100vh;
+    background-image: url("/");
+    background-position:top;
+    background-size: 100%;
+    background-repeat: no-repeat;
+} */
+        .container {
+            /* padding-top: 1rem; */
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+
+        }
+
+        #headline {
+            position: relative;
+            font-size: 2rem;
+            color: rgb(0, 0, 0);
+            width: 560px;
+            text-align: center;
+        }
+
+        #headline h1 {
+            color: rgb(40, 103, 248);
+            font-size: 2.5rem;
+            font-family: cursive;
+            text-align: center;
+
+        }
+
+
+        .slider-wrapper {
+            position: relative;
+            width: 50%;
+            height: 50vh;
+
+            background-image: url('/media/img/environment-banner-with-something-green-today-quote.jpg')no-repeat;
+            background-position: center;
+
+            background-size: cover;
+            box-shadow: 0 0.5rem 4rem 2.75rem hsla(116, 56%, 26%, 0.549);
+            border-radius: 2rem;
+            animation: changeImage 20s ease 0s infinite;
+
+
+        }
+
+        @keyframes changeImage {
+
+            10% {
+                background-image: url('/media/img/environment-banner-with-something-green-today-quote.jpg');
+                background-size: cover;
+                background-position: bottom;
+
+
+            }
+
+            50% {
+                background-image: url('/media/img/hands-1222866_1280.jpg');
+                background-position: top;
+                background-size: cover;
+
+
+            }
+
+            75% {
+
+                background-image: url('/media/img/global-warming-protection-environment-banner.jpg');
+                background-size: cover;
+                background-position: bottom;
+            }
+
+            100% {
+                background-image: url('/media/img/environment-banner-with-people-hands-saving-planet.jpg');
+                background-size: cover;
+                background-position: center;
+            }
+
+        }
+
+        .about {
+            height: 220vh;
+            width: 100%;
+            color: #ffffff;
+            font-size: 1.8rem;
+            padding: 100px 50px;
+
+        }
+
+        .about span {
+            font-family: cursive;
+            font-size: 3rem;
+        }
+
+        #detail {
+            word-wrap: break-word;
+            padding: 50px;
+            width: 100%;
+            height: 200vh;
+            background-color: beige;
+
+
+            color: #121215;
+
+
+        }
+
+        .about h1 {
+
+            font-size: 2rem;
+            color: rgb(40, 103, 248);
+
+        }
+
+        .about h1 span {
+            color: #116a17;
+            font-family: cursive;
+            font-size: 2rem;
+        }
+
+        .about p {
+            font-size: 1.5rem;
+            line-height: 2rem;
+        }
+
+        .about h3 {
+            font-size: 1.5rem;
+            color: rgb(27, 146, 31);
+        }
+
+        #about {
+
+            width: 100%;
+            height: 101vh;
+            display: flex;
+            background-color: #121215;
+
+
+
+
+
+        }
+
+
+        #about .about1 {
+
+            width: 40%;
+            height: 30%;
+            position: relative;
+            left: 5%;
+            top: 20%;
+            line-height: 3rem;
+
+
+        }
+
+        #about .about1 h1 {
+            color: rgb(40, 103, 248);
+
+            font-family: cursive;
+            font-size: 3rem;
+            line-height: 7vh;
+        }
+
+        #about .about1 p {
+            font-size: 2rem;
+            color: white;
+        }
+
+
+
+        .container1 {
+            /* padding-top: 1rem; */
+            width: 100%;
+            height: 120vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/media/img/pxclimateaction-4684217_1280.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* display: flex;
+  justify-content: space-evenly;
+  align-items: center; */
+
+
+        }
+
+   
+        #orbit {
+            padding: 300px;
+            height: 200px;
+            text-align: center;
+
+        }
+
+        #orbit h1 {
+            color: rgb(97, 255, 150);
+            font-size: 2.5rem;
+            font-family: cursive;
+            line-height: 4rem;
+        }
+
+        #orbit p {
+            color: #ffffff;
+            font-size: 2rem;
+            line-height: 3rem;
+            font-weight: 500;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+
+        #contactus {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact1 input,
+        textarea {
+
+            border-color: black;
+            width: 350px;
+            padding: 10px;
+            margin: 20px;
+            font-size: 1.3rem;
+            background-color: rgb(227, 255, 248);
+            color: rgb(0, 0, 0);
+            box-shadow: -8px -5px 12px rgb(249, 249, 249), 5px 10px 12px rgb(0, 0, 0);
+            cursor: pointer;
+        }
+
+        .contact1 button {
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            margin: 10px 130px;
+            background: rgb(0, 0, 0);
+            border-radius: 2rem;
+            border-style: groove;
+            color: rgb(243, 243, 243);
+            border-color: rgb(3, 3, 3);
+            font-weight: bold;
+        }
+
+        .contact1 button:hover {
+            background-color: rgb(113, 255, 127);
+            color: black;
+            transform: scale(1.1);
+        }
+
+        .contact1 {
+            /*  
+  position: relative;
+  left: 150px;
+  top: 150px; */
+            padding: 80px 70px;
+            width: 30%;
+            height: 78%;
+            border-width: 2px;
+            border-color: #121215;
+            border-style: solid;
+
+            /* background: linear-gradient(to bottom right, #006B38FF, #E6F0FF);
+  
+  box-shadow: 8px 5px 20px rgb(175, 171, 171), 5px 10px 12px rgb(0, 0, 0); */
+
+
+        }
+
+        .contact1 h1 {
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 2rem;
+        }
+
+        .contact1 p {
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        #contacts_img img {
+            width: 750px;
+            height: 703px;
+            border-width: 2px;
+            border-color: #121215;
+            border-style: solid;
+
+        }
+
+        #footer {
+            background-color: black;
+            width: 100%;
+            height: 50vh;
+
+        }
+
+        #footer p {
+            color: #ffffff;
+            font-size: 20px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #foot {
+
+            width: 100%;
+            height: 40vh;
+            border: 2px solid #666;
+            background-color: rgb(0, 0, 0);
+            display: grid;
+            justify-content: space-evenly;
+            grid-template-columns: 500px 500px 400px;
+            grid-template-rows: 40vh;
+
+
+
+        }
+
+        .con {
+
+            height: 40vh;
+            width: 500px;
+            position: relative;
+            top: 30px;
+            font-size: 20px;
+            color: #E6F0FF;
+
+        }
+
+        .con li a,
+        .con li {
+
+            padding: 20px;
+            color: #E6F0FF;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        .links {
+
+            height: 40vh;
+            width: 500px;
+            position: relative;
+            top: 30px;
+            font-size: 20px;
+            text-align: center;
+
+
+
+        }
+
+        .links li a,
+        .links li {
+            padding: 20px;
+            color: #E6F0FF;
+            list-style: none;
+            text-decoration: none;
+
+        }
+
+        .imp {
+
+            height: 40vh;
+            width: 400px;
+            padding: 20px;
+            font-size: 20px;
+            color: #E6F0FF;
+
+        }
+
+
+
+        .join-form {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .join-form form {
+            width: 80%;
+            height: 70vh;
+            background-color: beige;
+            border: 5px solid black;
+
+
+        }
+
+        .join-form form h1 {
+            font-size: 2rem;
+            font-family: sans-serif;
+            font-weight: 700;
+            text-align: center;
+            color: #406f36;
+            padding: 20px;
+        }
+
+        .join-form form button {
+            position: relative;
+            left: 550px;
+            top: 40px;
+            width: 130px;
+            height: 40px;
+            margin: 20px;
+            font-size: 1rem;
+            text-align: center;
+            background-color: #116a17;
+            color: #E6F0FF;
+            border: 3px solid black;
+
+        }
+
+        .join-form form button:hover {
+            transform: scale(1.1);
+        }
+
+        .join-form form button:active {
+            background-color: #121215;
+            color: #E6F0FF;
+        }
+
+        .form-box {
+            text-align: center;
+            position: relative;
+            left: 100px;
+            top: 20px;
+            width: 85%;
+            height: 30vh;
+            color: #E6F0FF;
+            font-size: 2rem;
+            background-color: rgb(68, 119, 49);
+            border: 3px solid black;
+        }
+
+        .form-box input {
+            margin: 30px;
+            padding: 10px;
+            border: 4px solid rgba(0, 0, 0, 0.49);
+            font-size: 1rem;
+
+
+        }
+
+        /*slide-show*/
+        .mySlide {
+            display: none;
+        }
+
+        iframe {
+            vertical-align: middle;
+        }
+
+        .slideshow-container {
+            max-width: 1200px;
+            position: relative;
+            margin: auto;
+            left: 100px;
+        }
+
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        .text {
+            font-size: 2rem;
+            color: rgb(5, 5, 5);
+        }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+
+        }
+
+        .active {
+            background-color: #717171;
+
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+        @media only screen and (max-width:300px) {
+            .text {
+                font-size: 11px;
+            }
+
+        }
+
+
+        .news {
+            width: 100%;
+            height: 150%;
+            padding: 50px;
+
+        }
+
+        .slideshow-container {
+            height: 25%;
+
+        }
+
+        .news h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: rgb(0, 175, 67);
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 20px;
+        }
+
+        .event-box {
+            width: 90%;
+            height: 60%;
+            margin: 100px 100px;
+            background-color: rgb(37, 37, 37);
+        }
+
+        .event-box h1 {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-align: center;
+            padding: 20px 20px;
+            font-size: 2.5rem;
+            color: rgb(255, 255, 255);
+        }
+
+        .cart-box {
+            background-color:#406f36;
+            width: 100%;
+            height: 150%;
+            display: grid;
+            grid-template-columns: 500px 500px 500px;
+            grid-template-rows: 500px 500px;
+
+        }
+
+        .cart {
+
+            width: 80%;
+            height: 50vh;
+            background-color: #ebebeb;
+            color: #000000;
+            padding: 20px 20px;
+            position: relative;
+            left: 70px;
+            top: 20px;
+            /* word-wrap: break-word; */
+            line-height: 1.5rem;
+            text-align: center;
+            border: solid black 5px;
+            text-decoration: none;
+            transition: all 1s linear;
+        }
+        .cart:hover{
+            transform: scale(1.1);
+        }
+        .cart a {
+            text-decoration: none;
+        }
+
+        .cart a h2 {
+
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 1.5rem;
+            margin: 20px;
+            line-height: 2rem;
+
+            color: rgb(0, 0, 0);
+        }
+
+        .cart a p {
+            /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+            /* color: #000000; */
+            font-family: sans-serif;
+            font-size: 1.1rem;
+        }
+
+        .join {
+            font-size: 3rem;
+            font-family: cursive;
+            color: white;
+
+            background-color: #006B38FF;
+            width: 100%;
+            height: 30vh;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .join h1 {
+            font-size: 4rem;
+
+        }
+
+        .joinform {
+
+
+
+            width: 100%;
+            height: 110vh;
+            font-size: 2rem;
+            color: rgb(0, 0, 0);
+            font-family: cursive;
+            background-color: whitesmoke;
+
+
+
+        }
+
+        .joinform form {
+            margin: 20px 250px;
+            background: linear-gradient(rgb(0, 184, 95), rgb(192, 255, 189));
+            width: 70%;
+            height: 75vh;
+            text-align: center;
+            padding: 40px 40px;
+
+            display: grid;
+            grid-template-columns: 1100px;
+            grid-template-rows: 110px;
+            border-color: #121215;
+            border-width: 2px;
+            border-style: solid;
+
+
+
+        }
+
+        .joinform #details {
+            display: flex;
+        }
+
+        .joinform form:hover {
+            background: linear-gradient(rgb(166, 255, 161), rgba(0, 107, 55, 0.637));
+            color: #121215;
+        }
+
+        .joinform h1 {
+            text-align: center;
+            padding-top: 80px;
+            font-family: cursive;
+        }
+
+        .joinform input,
+        select {
+
+            font-size: 1.2rem;
+            border-width: 3px;
+            border-style: groove;
+            cursor: pointer;
+            text-align: center;
+            padding: 10px;
+
+
+
+
+
+        }
+
+
+
+        .joinform #notifiyfrequency input[type=radio],
+        .joinform #notifytype input[type=checkbox],
+        .joinform #goal input[type=checkbox] {
+            border: 0px;
+            width: 30px;
+            height: 25px;
+
+
+
+        }
+
+        .joinform input[type=submit] {
+            padding: 10px 10px;
+            background-color: black;
+            font-size: 1.7rem;
+            color: white;
+            width: 200px;
+            height: 50px;
+            position: relative;
+            left: 450px;
+            top: 30px;
+        }
+
+        .joinform label {
+
+            font-size: 1.5rem;
+            color: rgb(0, 0, 0);
+            font-weight: 400;
+            padding: 10px;
+
+
+
+
+
+        }
+
+        #form,
+        #form1 {
+            position: relative;
+            top: 25px;
+            margin-left: 20px;
+            background-color: rgb(84, 87, 255);
+            color: #ffffff;
+            border-radius: 2rem;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+
+
+        }
+
+        #form:hover,
+        #form1:hover {
+            background-color: #ffffff;
+            color: #121215;
+        }
+
+        #form:active,
+        #form1:active {
+            background-color: green;
+            color: #ffffff;
+
+        }
+
+
+        .learn {
+
+            width: 100%;
+            height: 100vh;
+            padding: 5rem;
+            /* display: flex;
+    justify-content:space-evenly; */
+            background-color: #121215;
+
+        }
+
+
+        .question h1 {
+            font-size: 2rem;
+
+            line-height: 2rem;
+            margin-top: 20px;
+            color: rgb(71, 139, 255);
+            font-family: cursive;
+
+        }
+
+        .question p {
+            font-size: 2rem;
+            font-family: serif;
+            color: white;
+        }
+
+        .learn img {
+
+            box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+            border-radius: 2rem;
+            border-style: solid;
+
+        }
+
+        .notification {
+
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin-right: 15px;
+            margin-left: 15px;
+            position: relative;
+            display: inline-block;
+            border-radius: 3px;
+            font-size: 15px;
+
+
+
+
+        }
+
+        .notification:hover {
+
+            color: #fff;
+        }
+
+        .notification .badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+
+            border-radius: 50%;
+            background: red;
+            color: white;
+        }
+
+        .notification-section .dropdown-toggle::after {
+            content: none;
+        }
+
+        .dropdown-toggle::after {
+            color: #fdfdfd;
+        }
+
+        .dropdown-menu a {
+
+            max-width: 500px;
+            word-wrap: break-word;
+            display: inline-block;
+            white-space: normal;
+            color: #000000;
+            font-size: larger;
+        }
+
+        .dropdown-menu a:hover {
+            font-size: larger;
+            color: #000000;
+            background-color: #fdfdfd;
+        }
+
+        .dropdown-menu {
+            width: 30rem;
+            background-color: #fdfdfd;
+        }
+    </style>
+    {% block css %} {% endblock %}
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+    <header>
+        <div class="logo">
+            <b>Green<span>&amp;</span>Clean Earth&#127757;</b>
+        </div>
+        <div class="navbar">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'joinnow' %}">Join Form</a>
+           
+            <div class="nav-item dropdown notification-section">
+                <a href="{% url 'notification' %}" class="notification dropdown-toggle" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="true">
+                    <span><i class='fa fa-bell'></i></span>
+                    <span class="badge" id="notification-badge">0</span>
+                </a>
+                <div class="dropdown-menu">
+
+                    {% for i in notifications %}
+                    <a class="dropdown-item" href="{% url 'notification' %}">{{i.message}}</a>
+                    <div role="separator" class="dropdown-divider"></div>
+                    {% endfor %}
+                    {% comment %} <a class='dropdown-item'>Notification Section</a>
+                    <hr class="dropdown-divider"> {% endcomment %}
+                </div>
+            </div>
+
+
+            <!-- <a href="{% url 'login' %}">Login<i class="fa-solid fa-right-to-bracket"></i></a> -->
+            <!-- <a href="{% url 'signup' %}">signup</a><i class="fa-solid fa-arrow-right-to-bracket"></i>
+            </a> -->
+            <a href="{% url 'logout' %}">Log Out</a>
+        </div>
+
+        <input type="checkbox" name="" id="check">
+        <label for="check" class="toggler">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+        <div class="side-bar">
+            <ul>
+               
+                <li><a href="{% url 'home' %}">Home &#127968;</a></li>
+                
+                <li> <a href="{% url 'about' %}">About&#128587; </a></li>
+                <li><a href="{% url 'contact' %}">Contact&#128222;</a></li>
+                <!-- <li><a href="{% url 'login' %}">Login<i class="fa-solid fa-right-to-bracket"></i></a></li> -->
+                <!-- <li><a href="{% url 'signup' %}">New Account+</a></li> -->
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li> <a href="{% url 'logout' %}">Log out</a></li>
+
+            </ul>
+        </div>
+        <label for="check" class="remove">
+            <i class="fa-solid fa-xmark"></i>
+        </label>
+
+
+    </header>
+
+
+    <section class="container1">
+        <div id="orbit">
+            <h1>Inspiring Change, One Notification at a Time!&#128276; </h1><br>
+            <p>&#127758; Join Our Mission to Save our Precious Planet through daily Notification that encourage
+                eco-friendly habits&#128591;. Let's transform behavious together for a greener, more sustainable future!
+                &#127809; </p>
+            <a href="{% url 'joinnow' %}" id="form">JOIN NOW</a>
+            <a href="{% url 'about' %}" id="form1">KNOW MORE</a>
+        </div>
+
+    </section>
+
+    <section class="container">
+        <div id="headline">
+            <h1>ACT ON CLIMATE!!! </h1><br>
+            <p>&quot;Time to act on climate change: Let's protect our planet for future generation&#127757;&#127809;</p>
+            <span> &#35;ClimateActionNow</span>
+        </div>
+
+
+
+        <div class="slider-wrapper">
+            <div class="slider-nav">
+
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <img src="/media/img/environment-3751682_1280.png" alt="" height="900px">
+        <div class="about1">
+            <h1>2023: A record-breaking year....!! </h1><br>
+            <p>The past year has been a time of climate firsts, mainly for the wrong reasons. There have been over 38
+                days this year that were more than 1.5⁰C hotter than average higher than any other year on record.
+            </p>
+
+        </div>
+
+
+    </section>
+    <section class="join">
+        <h1>Join With Us&#128221;</h1>
+        <a href="{% url 'joinnow' %}" id="form">&QUOT;CLICK HERE&QUOT;</a>
+
+    </section>
+
+    <section class="news">
+        
+        <div class="event-box">
+            <h1>Latest News and Artical of Climate Change and Global Warming</h1>
+
+            <div class="cart-box">
+                <div class="cart">
+                    <a
+                        href="https://indianexpress.com/article/world/climate-change/climate-change-india-indus-valley-hot-study-8976019/"><img
+                            src="/media/img/Untitledhot.jpg" alt="" width="300px">
+                        <h2>The Indian Express</h2>
+                        <p>Climate change may make India and the Indus Valley too hot for up to 2.2 billion: Study</p>
+                    </a>
+                </div>
+                <div class="cart">
+                    <a
+                        href="https://www.hindustantimes.com/india-news/climate-change-turns-parts-of-india-into-hotspots-us-report-finds-101694110643449.html"><img
+                            src="/media/img/This-analysis.jpg" alt="" width="350px">
+                        <h2>The HindustanTimes</h2>
+                        <p>As climate crisis takes hold, 11 states record a hotter summer</p>
+                    </a>
+                </div>
+                <div class="cart">
+                    <a href="https://news.un.org/en/story/2023/10/1142987"><img
+                            src="/media/img/image1170x530cropped.jpg" alt="" width="350px">
+                        <h2>UN News</h2>
+                        <p>UN Secretary-General on Monday called on the world to “stop the madness” of climate change.
+                        </p>
+                    </a>
+
+                </div>
+                <div class="cart">
+
+                    <a href="https://www.who.int/news-room/fact-sheets/detail/climate-change-and-health"> <img
+                            src="/media/img/banjarbhoomi.jpg" alt="" width="300px">
+                        <h2>World Health Org.</h2>
+                        <p>Between 2030 and 2050, climate change is expected to cause approximately 250 000 additional
+                            deaths per year, from undernutrition, malaria, diarrhoea and heat stress alone.</p>
+                    </a>
+
+                </div>
+                <div class="cart">
+                    <a href="https://www.eea.europa.eu/en/topics/in-depth/climate-change-impacts-risks-and-adaptation">
+                        <img src="/media/img/sukhha.jpg" alt="" width="350px">
+                        <h2>European Environment Agency</h2>
+                        <p>Climate change impacts, risks and adaptation.</p>
+                    </a>
+
+                </div>
+                <div class="cart">
+                    <a
+                        href="https://medium.com/@nasiruddin59071/causes-and-effects-of-climate-change-on-our-surrounding-environment-e6a7fcffec62"><img
+                            src="/media/img/causes.jpg" alt="" width="350px">
+                        <h2>Medium.com</h2>
+                        <p>Causes and Effects Of Climate Change On Our Surrounding Environment</p>
+                    </a>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+    <footer id="footer">
+        <div id="foot">
+            <div class="con">
+                <ul>
+                    <li> <a href="#"> <i class="fas fa-user"></i> Greeen&Clean Earth org.</a></li>
+
+
+                    <li> <a href="mailto:ishamahajan933@gmail.com"><i class="fa-solid fa-envelope"></i>
+                            greenandcleanearth07@gmail.com</a></li>
+
+
+                    <li><a href="tel:+91"><i class="fas fa-phone"></i> +1234567890</a></li>
+
+
+                    <li> <a href=""><i class="fa-solid fa-location-dot"></i> Burhanpur,Madhya Pradesh </a></li>
+                </ul>
+
+
+            </div>
+            <div class="links">
+
+                <ul>
+                    <li><a href="{% url 'home' %}">home</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                    <li><a href="{% url 'joinnow' %}">Join Now</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="links">
+                <ul>
+
+                    <li><a href="#">News Feeds</a></li>
+                    <li><a href="#">Latest Events</a></li>
+                    <li><a href="#"></a></li>
+
+                </ul>
+
+
+            </div>
+
+
+
+        </div>
+
+        <p>Made With &#128154; | Green&Clean Earth org. &#127757;| Bharat <img src="/media/img/flag.png" alt="" width="20px"></p>
+
+    </footer>
+    
+    {{ room_name|json_script:"room-name" }}
+    <script>
+        const roomName = JSON.parse(document.getElementById('room-name').textContent);
+
+        const notificationSocket = new WebSocket(
+            'ws://'
+            + window.location.host
+            + '/ws/notification/'
+            + roomName
+            + '/'
+        );
+
+        notificationSocket.onmessage = function (e) {
+            const data = JSON.parse(e.data);
+            //document.querySelector('#chat-log').value += (data.message + '\n');
+            console.log(data);
+            badge=document.getElementById("notification-badge").innerHTML;
+            document.getElementById("notifications-dropdown").innerHTML = "<a class='dropdown-item'>" + data + "</a><hr class='dropdown-divider'>" + document.getElementById("notifications-dropdown").innerHTML;
+            badge = parseInt(badge) + 1;
+            console.log(badge);
+        };
+
+        notificationSocket.onclose = function (e) {
+            console.error('Chat socket closed unexpectedly');
+        };
+
+
+
+
+    </script>
+
+    {% block body %} {% endblock %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+</body>
+{% block js %} {% endblock %}
+
+</html>
